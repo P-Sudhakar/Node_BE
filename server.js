@@ -1,4 +1,11 @@
 const mongoose = require("mongoose");
+const express = require('express');
+const app = express();
+
+// Health check route
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
 
 // Make sure we are running node 10.0+
 const [major, minor] = process.versions.node.split(".").map(parseFloat);
