@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const express = require('express');
-const app = express();
+const app = require("./app");  // Import app from app.js
 
 // Health check route
 app.get('/health', (req, res) => {
@@ -41,7 +40,6 @@ glob.sync("./models/*.js").forEach(function (file) {
 });
 
 // Start our app!
-const app = require("./app");
 app.set("port", process.env.PORT || 80);
 const server = app.listen(app.get("port"), () => {
   console.log(`Express running → On PORT : ${server.address().port}`);
